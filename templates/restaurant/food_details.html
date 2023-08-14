@@ -1,0 +1,104 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+{% comment %} <section >
+    <div class="block">
+        <div class="fixed-bg" style="background-image: url('/static/images/topbg.jpg');"></div>
+        <div class="page-title-wrapper text-center">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="page-title-inner">
+                    <h1 itemprop="headline">Search Your Favourite Food</h1>
+                    <form class="restaurant-search-form brd-rd2">
+                        <div class="row mrg10">
+                            <div class="col-md-6 col-sm-5 col-lg-5 col-xs-12">
+                                <div class="input-field brd-rd2"><input class="brd-rd2" type="text" placeholder="Restaurant Name"></div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
+                                <div class="input-field brd-rd2"><i class="fa fa-map-marker"></i><input class="brd-rd2" type="text" placeholder="Search Location"><i class="fa fa-location-arrow"></i></div>
+                            </div>
+                            <div class="col-md-2 col-sm-3 col-lg-3 col-xs-12">
+                                <button class="brd-rd2 red-bg" type="submit">SEARCH</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> {% endcomment %}
+
+<div class="bread-crumbs-wrapper" style="margin-top: 150px;">
+    <div class="container">
+       
+    </div>
+</div>
+
+<section>
+    <div class="block gray-bg bottom-padd210 top-padd30" >
+        
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                    <div class="sec-box">
+                        <div class="sec-wrapper">
+                            <div class="col-md-8 col-sm-12 col-lg-8">
+                                <div class="restaurant-detail-wrapper">
+                                    <div class="restaurant-detail-info">
+                                        <div class="restaurant-detail-thumb">
+                                            <ul class="restaurant-detail-img-carousel">
+                                                <li><img class="brd-rd3" src="{{ product.product_img.url }} " alt="restaurant-detail-big-img1-1.jpg" itemprop="image"></li>
+                                       
+                                            </ul>
+                                           
+                                        </div>
+                                        <div class="restaurant-detail-title">
+                                            <h1 itemprop="headline">{{ product.product_name }}</h1>
+                                            <div class="info-meta">
+                                                
+                                                
+                                                
+                                            </div>
+                                            <br>
+                                            <div class="rating-wrapper">
+                                                 <a class="gradient-brd brd-rd2" href="" title="" ><i class="fa fa-star"> {{ product.restaurant_fk }}</i></a>
+                                                
+                                            </div>
+                                            <span class="price">&#8377 {{product.price}}</span>
+                                            <div class="qty-wrap">
+                                                <form action="{% url 'cart:basket_add' product.id %}" method="post">
+                                                                            
+                                                    <!--! form for cart starts here -->
+                                                    
+                                                       {% csrf_token %}
+                                                       <div style="width: 150px;"> {{ cart_product_form }}</div>
+                                                       <br>
+                                                       
+                                                           <input class="brd-rd2 red-bg" type="submit" value="Add to Card">
+                                                        
+                                               </form>
+                                            </div>
+                                            <p itemprop="description">{{ product.description }}</p>
+                                            <br><br>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12 col-lg-4">
+                                <div class="order-wrapper">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Section Box -->
+    </div>
+</section>
+
+
+{% endblock body %}
+    

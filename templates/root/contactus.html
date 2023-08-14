@@ -1,0 +1,138 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+    
+<main>
+    <div class="preloader">
+        <div id="cooking">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div id="area">
+                <div id="sides">
+                    <div id="pan"></div>
+                    <div id="handle"></div>
+                </div>
+                <div id="pancake">
+                    <div id="pastry"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="block">
+            <div class="fixed-bg" style="background-image: url('/static/images/topbg.jpg');"></div>
+            <div class="page-title-wrapper text-center">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="page-title-inner">
+                        <h1 itemprop="headline">Contact Us</h1>
+                        <span>A Greate Restaurant Website</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bread-crumbs-wrapper">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
+                <li class="breadcrumb-item active">Contact Us</li>
+            </ol>
+        </div>
+    </div>
+
+    <section>
+        <div class="block less-spacing gray-bg top-padd30">
+            
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="sec-box">
+                                {% if messages %}
+                                {% for message in messages %}
+                                    <div class="welcome-note yellow-bg brd-rd5">
+                                        <h2 itemprop="headline">Thanks for Contact Us </h2>
+                                        <p itemprop="description"><h4>{{message}}</h4>
+                                        </p>
+                                        <img src="{% static 'images/resource/welcome-note-img.png' %}"
+                                            alt="welcome-note-img.png" itemprop="image">
+                                        <a class="remove-noti" href="#" title="" itemprop="url"><img
+                                                src="{% static 'images/close-icon.png' %}"
+                                                alt="close-icon.png" itemprop="image"></a>
+                                    </div>                
+                                {% endfor %}
+                                {% endif %} 
+                            <div class="contact-info-sec text-center">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4 col-lg-4">
+                                        <div class="contact-info-box">
+                                            <i class="fa fa-phone-square"></i>
+                                            <h5 itemprop="headline">PHONE</h5>
+                                            <p itemprop="description">Phone 01:(91) 9664449192</p>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-lg-4">
+                                        <div class="contact-info-box">
+                                            <i class="fa fa-map-marker"></i>
+                                            <h5 itemprop="headline">ADDRESS</h5>
+                                            <p itemprop="description">Chimanbhai Patel institute
+                                                Sarkhej Gandhinagar highway,opposite karnavati club, makraba , Ahmedabad , Gujrat 380015</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-lg-4">
+                                        <div class="contact-info-box">
+                                            <i class="fa fa-envelope"></i>
+                                            <h5 itemprop="headline">EMAIL</h5>
+                                            <p itemprop="description">foodwithcomfort@gmail.com</p>
+                                            
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="contact-form-wrapper text-center">
+                                <div class="contact-form-inner">
+                                    <h3 itemprop="headline">If You Got Any Questions <br> Please Do Not Hesitate to Send us a Message.</h3>
+                                    <div id="message"></div>
+                                    <form method="POST" action="{% url 'root:contactus' %}" >
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-6 col-lg-12">
+                                                {{form.name}}
+                                            </div>
+                                            <div class="col-md-12 col-sm-6 col-lg-12">
+                                                {{form.email_id}}
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                {{form.subject}}
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                {{form.message}}
+                                            </div>
+                                            <!--<div class="col-md-12 col-sm-12 col-lg-12">
+                                                <div class="g-recaptcha" data-sitekey="6LelmzAUAAAAAHBE2SJeRMfnzYVxH9RMGQstUij2"></div> 
+                                            </div>-->
+                                            
+                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                <button class="brd-rd2"  type="submit">SEND MESSAGE</button>
+                                                <img src="{% static 'images/ajax-loader.gif' %} " class="loader" alt="ajax-loader.gif" itemprop="image">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- Contact Form Wrapper -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock body %}

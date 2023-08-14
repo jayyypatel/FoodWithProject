@@ -1,0 +1,164 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+<div class="preloader">
+    <div id="cooking">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div id="area">
+            <div id="sides">
+                <div id="pan"></div>
+                <div id="handle"></div>
+            </div>
+            <div id="pancake">
+                <div id="pastry"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<section style="margin-top: 150px;">
+    <div class="block">
+        <div class="fixed-bg" style="background-image: url('/static/images/topbg.jpg');"></div>
+        <div class="page-title-wrapper text-center">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="page-title-inner">
+                    <h1 itemprop="headline">Search Your Favourite Food</h1>
+                    <form class="restaurant-search-form brd-rd2" action="{% url 'restaurant:search_restaurant' %}" method="GET">
+                        <div class="row mrg10">
+                            <div class="col-md-6 col-sm-5 col-lg-5 col-xs-12" style="width: 722px;">
+                                <div class="input-field brd-rd2"><input class="brd-rd2" type="text" placeholder="Restaurant Name" name="q"></div>
+                            </div>
+                            
+                            <div class="col-md-2 col-sm-3 col-lg-3 col-xs-12">
+                                <button class="brd-rd2 red-bg" type="submit">SEARCH</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="bread-crumbs-wrapper">
+    <div class="container">
+        <ol class="breadcrumb">
+            
+        </ol>
+    </div>
+</div>
+
+<section>
+    <div class="block gray-bg bottom-padd210 top-padd30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="sec-box">
+                        <div class="top-restaurants-wrapper">
+                            <ul class="restaurants-wrapper style2">
+                                {% for rest in rest_context %}
+                                    <li class="wow bounceIn" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: bounceIn;"><div class="top-restaurant"><a class="brd-rd50" href="{% url 'restaurant:restaurant_details' rest.id %}" title="Restaurant 1" itemprop="url"><img src=" {{ rest.picture.url }} " alt="top-restaurant1.png" itemprop="image"></a></div></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="sec-wrapper top-padd80">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-12 col-lg-3">
+                                    <div class="sidebar left">
+                                        <div class="widget style2 Search_filters">
+                                            <h4 class="widget-title2 sudo-bg-red" itemprop="headline">Search Filters
+                                            </h4>
+                                            <div class="widget-data">
+                                                <ul>
+                                                    
+                                                    {% for i in category %}
+                                                    <li><a href="{% url 'restaurant:cat_restaurants' i.id %}" title="" itemprop="url">{{ i }}</a>
+                                                        <span></span></li>
+                                                    {% endfor %}
+                                                        
+                                                    
+                                                    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="widget style2 quick_filters">
+                                            <h4 class="widget-title2 sudo-bg-red" itemprop="headline">Quick Filters</h4>
+                                            <div class="widget-data">
+                                                <ul>
+                                                    <li><span class="radio-box"><input type="radio" name="filter"
+                                                                id="filt1-1"><label
+                                                                for="filt1-1">Promotions</label></span></li>
+                                                    <li><span class="radio-box"><input type="radio" name="filter"
+                                                                id="filt1-2"><label
+                                                                for="filt1-2">Bookmarked</label></span></li>
+                                                    <li><span class="radio-box"><input type="radio" name="filter"
+                                                                id="filt1-3"><label for="filt1-3">Pure
+                                                                veg</label></span></li>
+                                                    <li><span class="radio-box"><input type="radio" name="filter"
+                                                                id="filt1-4"><label for="filt1-4">Free
+                                                                Delivery</label></span></li>
+                                                    <li><span class="radio-box"><input type="radio" name="filter"
+                                                                id="filt1-5"><label for="filt1-5">Online
+                                                                Payments</label></span></li>
+                                                </ul>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <!--Sidebar -->
+                                </div>
+                                <div class="col-md-9 col-sm-12 col-lg-9">
+                                    <div class="title2-wrapper">
+                                        <h3 class="marginb-0" itemprop="headline">Restaurants</h3>
+                                    </div>
+                                    <div class="remove-ext">
+                                        <div class="row">
+                                            
+                                            {% for restaurant in rest_name  %} 
+                                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                                <div class="featured-restaurant-box with-bg style2 brd-rd12 wow fadeIn"
+                                                    data-wow-delay="0.1s" style="background-color: #f2f7ff;">
+                                                    <div class="featured-restaurant-thumb">
+                                                        <a href="{% url 'restaurant:restaurant_details' restaurant.id %}" title="" itemprop="url"><img
+                                                                src="{{ restaurant.picture.url }}"
+                                                                alt="most-popular-img1.png" itemprop="image"></a>
+                                                    </div>
+                                                    <div class="featured-restaurant-info">
+                                                        <span class="red-clr">{{ restaurant.address_fk }}</span>
+                                                        <h4 itemprop="headline"><a href="restaurant-detail.html"
+                                                                title="" itemprop="url">{{ restaurant.restaurant_name }}</a></h4>
+                                                        <span class="food-types">Type of food: <a href="#" title=""
+                                                                itemprop="url">{{ restaurant.category_fk }}</a></span>
+                                                        <ul class="post-meta">
+                                                            <li><i class="fa fa-check-circle-o"></i> Min order  {{ restaurant.minimum_or}}</li>
+                                                            <li><i class="fa fa-check-circle-o"></i> {{ restaurant.takeaway }}</li>
+                                                            <li><i class="flaticon-money"></i> Accepts cash & online
+                                                                payments</li>
+                                                        </ul>
+                                                        <span class="post-rate yellow-bg brd-rd2"><i
+                                                                class="fa fa-star-o"></i> {{ restaurant.rating_fk }}</span>
+                                                        <span class="post-likes style2 red-clr"><i
+                                                                class="fa fa-heart-o"></i> 12</span>
+                                                        <a class="brd-rd30" href="{% url 'restaurant:restaurant_details' restaurant.id %}"
+                                                            title="Order Online"><i
+                                                                class="fa fa-angle-double-right"></i> Order Online</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock body %}

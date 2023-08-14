@@ -1,0 +1,109 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="col-md-8 col-sm-12 col-lg-8" style="margin-top: 110px;margin-left: 208px;">
+    <div class="tab-content">
+        <div class="">
+            <div class="tabs-wrp brd-rd5">
+                <br>
+                <h4 class="title3" itemprop="headline"><span
+                    class="sudo-bottom sudo-bg-red">Booked</span> in {{bworder_obj.booking_id.restaurant_fk}}</h4>          <span style="margin-left: 400px;">Total Amount : {{final_total}}</span>
+                <br>    
+                <div class="select-wrap-inner">
+                    <div class="select-wrp2">
+                        
+
+                    </div>
+
+                </div>
+                <div class="statement-table" >
+                    
+                    
+                    
+                    <table class='cart'>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                
+                               
+                                <th>Unit Price</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in order_details %}
+                                
+                                    <tr>
+                                        <td>
+                                            <a href="{{ product.get_absolute_url }}">
+                                                <img src="{{ item.product_fk.product_img.url }}" height="80px">
+                                            </a>
+                                        </td>
+                                        <td> {{ item.product_fk.product_name }}</td>
+                                        <td>
+                                            {{item.quantity}}
+                                        </td>
+                                        
+                                        <td class='num'> Rs {{ item.product_fk.price }}</td>
+                                        <td class='num'> Rs {{ item.total_amount }}</td>
+                                    </tr>
+                                
+                            {% endfor %}
+                            <tr class='total'>
+                                    <td>Total</td>
+                                    <td colspan="3"></td>
+                                    <td class='num'> Rs {{ orderdetails_total }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    {% if bworder_obj.booking_id.paid == True%}
+                    <center><a href="{% url 'genpdf:download_invoice' bworder_obj.booking_id.id %}"> <button class="brd-rd2 red-bg" type="" style="margin-top: 5px;margin-right:25px;color: aliceblue;">Download Invoice</button></a></center>
+                    {% endif %}
+
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div class="welcome-note yellow-bg brd-rd5">
+                            <h4 itemprop="headline">Error </h4>
+                            <p itemprop="description">{{message}}
+                            </p>
+                            <img src="{% static 'images/resource/welcome-note-img.png' %}"
+                                alt="welcome-note-img.png" itemprop="image">
+                            <a class="remove-noti" href="#" title="" itemprop="url"><img
+                                    src="{% static 'images/close-icon.png' %}"
+                                    alt="close-icon.png" itemprop="image"></a>
+                        </div>                
+                        {% endfor %}
+                        {% endif %} 
+                </div><!-- Statement Table -->
+             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <ul class="ordr-lst brd-rd5" style="width: 1100px;margin-top: 100px;margin-left: 200px;">
+
+
+
+
+    <li class="lst-hed">PRODUCT <span>TOTAL</span><span>Quantity</span></li>
+    <li>Product X 1 <span>$90.00</span><span>4</span></li>
+    <li>Subtotal <span>4</span><span>$90.00</span></li>
+    <li>Gov Tax <span>4</span><span>$2.70</span></li>
+    <li class="red-bg">Total <span>4</span><span>$92.70</span></li>
+</ul> -->
+</div>
+
+
+
+
+
+
+{% endblock body %}

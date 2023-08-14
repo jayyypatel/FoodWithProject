@@ -1,0 +1,73 @@
+{% load static %}
+
+<section>
+    <div class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="title1-wrapper text-center">
+                        <div class="title1-inner">
+                            <span>Website for Restaurant and Cafe</span>
+                            <h2 itemprop="headline">Featured resturents</h2>
+                        </div>
+                    </div>
+                    <div class="featured-restaurants-wrapper">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-lg-6">
+                                <div class="featured-restaurants-list">
+                                    
+                                    {% for 3_pro in sing_rest_pro  %}
+                                    <div class="featured-restaurant-box wow fadeIn" data-wow-delay="0.1s">
+                                        <div class="featured-restaurant-thumb">
+                                            <a href="food-detail.html" title="" itemprop="url"><img class="brd-rd2" src="{{3_pro.product_img.url}} " alt="featured-restaurant-img1.jpg" itemprop="image"></a>
+                                        </div>
+                                        <div class="featured-restaurant-info">
+                                            <span class="red-clr">{{ 3_pro.restaurant_fk.address_fk  }}</span>
+                                            <h4 itemprop="headline"><a href="{% url 'restaurant:food_details' 3_pro.id %}" title="" itemprop="url">{{3_pro.product_name}}</a></h4>
+                                            <span class="price">&#8377 {{ 3_pro.price }}</span>
+                                            
+                                            <ul class="post-meta">
+                                                <li><i class="fa fa-check-circle-o"></i> Min order &#8377 {{ 3_pro.restaurant_fk.minimum_or }}</li>
+                                                
+                                            </ul>
+                                            <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i>{{ 3_pro.restaurant_fk.rating_fk }}</span>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                        
+                                    
+                                    
+                                </div><!-- Featured Restaurants List -->
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-lg-6">
+                                <div class="featured-restaurant-gallery">
+                                    <div class="featured-restaurant-carousel">
+                                        <div class="featured-restaurant-thumb"><img class="brd-rd2" src="{% static 'images/resource/featured-restaurant-gallery1.jpg' %}" alt="featured-restaurant-gallery1.jpg" itemprop="image"></div>
+                                        <div class="featured-restaurant-thumb"><img class="brd-rd2" src="{% static 'images/resource/featured-restaurant-gallery2.jpg' %}" alt="featured-restaurant-gallery2.jpg" itemprop="image"></div>
+                                    </div>
+                                    <div class="featured-restaurant-box">
+                                        <div class="featured-restaurant-thumb">
+                                            <a class="red-bg brd-rd2" data-fancybox href="https://vimeo.com/49674259" title="Click To Play" itemprop="url"><i class="fa fa-play"></i></a>
+                                            <span class="video-time">15mint</span>
+                                        </div>
+                                        <div class="featured-restaurant-info">
+                                            <span class="red-clr">{{ sing_restaurant.address_fk }}</span>
+                                            <h4 itemprop="headline"><a href="{% url 'restaurant:restaurant_details' sing_restaurant.id %}" title="" itemprop="url">{{ sing_restaurant }}</a></h4>
+                                            
+                                            
+                                            <ul class="post-meta">
+                                                <li><i class="fa fa-check-circle-o"></i> Min order 	&#8377 {{ sing_restaurant.minimum_or }}</li>
+                                                <li><i class="flaticon-transport"></i> </li>
+                                            </ul>
+                                            <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i>{{ sing_restaurant.rating_fk }}</span>
+                                        </div>
+                                    </div>
+                                </div><!-- Featured Restaurant Gallery -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

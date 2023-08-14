@@ -1,0 +1,82 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Login Page</title>
+</head>
+
+<body>
+
+    <div style="padding-top: 160px;" style="padding-top: 160px;">
+
+        <div class="container" style="margin-left: 355px;">
+
+            <div class="" style="width: 800px;">
+                <div class="sign-popup-wrapper brd-rd5">
+                    <div class="sign-popup-inner brd-rd5">
+                        <div class="sign-popup-title text-center">
+                            <h4 itemprop="headline">Register</h4>
+                            <span>with your social network</span>
+                        </div>
+                        <div class="popup-social text-center">
+                            <a class="facebook brd-rd3" href="#" title="Facebook" itemprop="url" target="_blank"><i
+                                    class="fa fa-facebook"></i> Facebook</a>
+                            <a class="google brd-rd3" href="#" title="Google Plus" itemprop="url" target="_blank"><i
+                                    class="fa fa-google-plus"></i> Google</a>
+                            <a class="twitter brd-rd3" href="#" title="Twitter" itemprop="url" target="_blank"><i
+                                    class="fa fa-twitter"></i> Twitter</a>
+                        </div>
+                        <span class="popup-seprator text-center"><i class="brd-rd50">or</i></span>
+                        <form class="sign-form" action="{% url 'Auth_system:register_user_n' %}" method="POST">
+                            {% csrf_token %}
+                            {% for fm in form %} 
+                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                            {{ fm.label_tag }} {{ fm }} <small class="text-danger">{{fm.errors|striptags}}</small>
+                            </div>
+                            {% endfor %}
+                            
+                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+
+                                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6"><input type="radio" name="user_ops"
+                                        id="" style="width: 23px;margin-left: 71px;" value="manager">
+                                    <p style="color: black;margin-top: 11px;margin-left: 14px;"> <b>as a Manager</b>
+                                    </p>
+                                </div>
+
+
+                                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6"><input type="radio" name="user_ops"
+                                        id="" style="width: 23px;margin-left: 71px;" value="customer">
+                                    <p style="color: black;margin-top: 11px;margin-left: 14px;"> <b>as a Customer</b>
+                                    </p>
+                                </div>
+
+                            </div>
+                                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                                    <button class="red-bg brd-rd3" type="submit">Register</button>
+                                </div>
+                                {% if form.non_field_errors %}
+                                {% for error in form.non_field_errors %}
+                                 <p class="alert alert-danger my-3">{{error}}</p>
+                                {% endfor %}
+                              {% endif %}
+                                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                                    <a class="sign-btn" href="{% url 'Auth_system:loginpage' %}" title="" itemprop="url">already a member? Sign in</a>
+                                    <a class="recover-btn" href="#" title="" itemprop="url">Recover my password</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+{% endblock body %}

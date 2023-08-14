@@ -1,0 +1,318 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+<div class="preloader">
+    <div id="cooking">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div id="area">
+            <div id="sides">
+                <div id="pan"></div>
+                <div id="handle"></div>
+            </div>
+            <div id="pancake">
+                <div id="pastry"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section style="padding-top: 150px;">
+    <div class="block gray-bg top-padd30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="sec-box">
+                        <div class="sec-wrapper">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-12 col-lg-8">
+                                    <div class="restaurant-detail-wrapper">
+                                        <div class="restaurant-detail-info">
+                                            <div class="restaurant-detail-thumb">
+                                                <ul class="restaurant-detail-img-carousel">
+                                                    <li><img class="brd-rd3"
+                                                            src="{% static 'images/resource/restaurant-detail-big-img1-1.jpg' %}"
+                                                            alt="restaurant-detail-big-img1-1.jpg" itemprop="image">
+                                                    </li>
+                                                    <li><img class="brd-rd3"
+                                                            src="{% static 'images/resource/restaurant-detail-big-img1-2.jpg' %}"
+                                                            alt="restaurant-detail-big-img1-2.jpg" itemprop="image">
+                                                    </li>
+                                                    <li><img class="brd-rd3"
+                                                            src="{% static 'images/resource/restaurant-detail-big-img1-3.jpg' %}"
+                                                            alt="restaurant-detail-big-img1-3.jpg" itemprop="image">
+                                                    </li>
+                                                    <li><img class="brd-rd3"
+                                                            src="{% static 'images/resource/restaurant-detail-big-img1-4.jpg' %}"
+                                                            alt="restaurant-detail-big-img1-4.jpg" itemprop="image">
+                                                    </li>
+                                                </ul>
+                                                <ul class="restaurant-detail-thumb-carousel">
+                                                    <li><img class="brd-rd3"
+                                                            src="{% static 'images/resource/restaurant-detail-small-img1-1.jpg' %}"
+                                                            alt="restaurant-detail-small-img1-1.jpg" itemprop="image">
+                                                    </li>
+                                                    <li><img class="brd-rd3"
+                                                            src="{% static 'images/resource/restaurant-detail-small-img1-2.jpg' %}"
+                                                            alt="restaurant-detail-small-img1-2.jpg" itemprop="image">
+                                                    </li>
+                                                    <li><img class="brd-rd3"
+                                                            src="{% static 'images/resource/restaurant-detail-small-img1-3.jpg' %}"
+                                                            alt="restaurant-detail-small-img1-3.jpg" itemprop="image">
+                                                    </li>
+                                                    <li><img class="brd-rd3"
+                                                            src="{% static 'images/resource/restaurant-detail-small-img1-4.jpg' %}"
+                                                            alt="restaurant-detail-small-img1-4.jpg" itemprop="image">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="restaurant-detail-title">
+                                                <h1 itemprop="headline">{{ restaurant }}</h1>
+                                                <div class="info-meta">
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="restaurant-detail-tabs">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="active"><a href="#tab1-1" data-toggle="tab"><i
+                                                                class="fa fa-cutlery"></i> Menu</a></li>
+                                                    
+                                                    
+                                                    <li><a href="#tab1-2" data-toggle="tab"><i class="fa fa-book"></i>
+                                                            Book A Table</a></li>
+                                                    <li><a href="#tab1-3" data-toggle="tab"><i class="fa fa-info"></i>
+                                                            Restaurant Info</a></li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div class="tab-pane fade in active" id="tab1-1">
+                                                        
+                                                        <br>
+                                                        {% if messages %}
+                                                                {% for message in messages %}
+                                                                    <div class="welcome-note yellow-bg brd-rd5">
+                                                                        <h4 itemprop="headline">Error </h4>
+                                                                        <p itemprop="description">{{message}}
+                                                                        </p>
+                                                                        <img src="{% static 'images/resource/welcome-note-img.png' %}"
+                                                                            alt="welcome-note-img.png" itemprop="image">
+                                                                        <a class="remove-noti" href="#" title="" itemprop="url"><img
+                                                                                src="{% static 'images/close-icon.png' %}"
+                                                                                alt="close-icon.png" itemprop="image"></a>
+                                                                    </div>  
+                                                                    <br>             
+                                                                {% endfor %}
+                                                        {% endif %}
+                                                        
+                                                        <div class="dishes-list-wrapper">
+                                                            <h4 class="title3" itemprop="headline"><span
+                                                                    class="sudo-bottom sudo-bg-red">{{restaurant}}</span>
+                                                            </h4>
+                                                            
+                                                            <ul class="dishes-list">
+                                                                {% for pro in products %}
+                                                                <li class="wow fadeInUp" data-wow-delay="0.1s">
+                                                                    <div class="featured-restaurant-box"
+                                                                        style="border-top: 1px solid #a4a0a0;">
+                                                                        <div class="featured-restaurant-thumb">
+                                                                            <a href="#" title="" itemprop="url"><img
+                                                                                    src="{{ pro.product_img.url }}"
+                                                                                    alt="dish-img1-1.jpg"
+                                                                                    itemprop="image"></a>
+                                                                        </div>
+                                                                        <div class="featured-restaurant-info">
+                                                                            <h4 itemprop="headline"><a href="#" title=""
+                                                                                    itemprop="url">{{ pro.product_name}}</a>
+                                                                            </h4>
+                                                                            <span class="price">
+                                                                                &#x20B9 {{ pro.price }}</span>
+                                                                            <p itemprop="description"> {{pro.description}} </p>
+                                                                            <ul class="post-meta">
+                                                                                <li><i class="fa fa-check-circle-o"></i>
+                                                                                    Min order &#x20B9 50</li>
+                                                                                <li><i class="flaticon-transport"></i>
+                                                                                    30min</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        
+                                                                        <div class="ord-btn">
+                                                                            <form action="{% url 'cart:basket_add' pro.id %}" method="post">
+                                                                            
+                                                                                 <!--! form for cart starts here -->
+                                                                                 
+                                                                                    {% csrf_token %}
+                                                                                    {{ cart_product_form }}
+                                                                                    
+                                                                                        <input class="brd-rd2 red-bg" type="submit" value="Add to Card">
+                                                                                            
+                                                                                            
+                                                                            </form>  
+                                                                        </div>
+                                                                    
+
+
+
+                                                                    </div>
+                                                                </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    <div class="tab-pane fade" id="tab1-2">
+                                                        <div class="book-table">
+                                                            <h4 class="title3" itemprop="headline"><span
+                                                                    class="sudo-bottom sudo-bg-red">Book</span> This
+                                                                Restaurant Table</h4>
+                                                            <form action="." method="POST">
+                                                                {% csrf_token %}
+
+                                                                <div class="row">
+
+                                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                        <div class="input-field brd-rd2"><i
+                                                                                class="fa fa-user"></i> {{ b_form.name}}</div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                        <div class="input-field brd-rd2"> {{ b_form.date}}</div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                        <div class="input-field brd-rd2">
+                                                                            {{b_form.time}}
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                        <div class="input-field brd-rd2"><i
+                                                                                class="fa fa-user"></i> {{b_form.num_of_person }}</div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                        <div class="select-wrp2 ">
+                                                                            <select id='hour_select'
+                                                                                name="hour_select" required>
+                                                                                <option value="" disabled selected>How many hours ?</option>
+                                                                                <option> 1 </option>
+                                                                                <option> 2 </option>
+                                                                                <option> 3 </option>
+                                                                                <option> 4 </option>
+                                                                                <option> 5 </option>
+                                                                                
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                        <div class="select-wrp2 ">
+                                                                            <select id='decoration_select'
+                                                                                name="decoration_select">
+                                                                                {% if deco_type %}
+                                                                                {% for i in deco_type %}
+                                                                                <option> {{ i.decoration_type }} [
+                                                                                    Price: {{ i.deco_price }} ]</option>
+                                                                                {% endfor %}
+                                                                                {% endif %}
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                                        <div class="select-wrp2 ">
+                                                                            <select multiple id="tbl_booked"
+                                                                                name="tbl_booked">
+                                                                                {% if available_tbl %}
+                                                                                {% for i in available_tbl %}
+                                                                                <option> {{ i.tbl_name }}</option>
+                                                                                {% endfor %}
+                                                                                {% endif %}
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div class="col-md-12 col-sm-12 col-lg-12">
+                                                                        <button class="brd-rd2 red-bg"
+                                                                            type="submit">Book Table</button>
+                                                                    </div>
+
+
+
+
+                                                                </div>
+                                                            </form>
+                                                             
+                                                        </div>
+                                                    </div>
+                                                
+                                                    <div class="tab-pane fade" id="tab1-3">
+                                                        <div class="restaurant-info-wrapper">
+                                                            <h3 class="title3" itemprop="headline"><span
+                                                                    class="sudo-bottom sudo-bg-red">Book</span> This
+                                                                Restaurant Table</h3>
+                                                            <div class="mapouter">
+                                                                <div class="gmap_canvas"><iframe class="gmap_iframe"
+                                                                        width="100%" frameborder="0" scrolling="no"
+                                                                        marginheight="0" marginwidth="0"
+                                                                        src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q={{restaurant.address_fk}}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a
+                                                                        href="https://www.fnfgo.com/">FNF Online Mods</a>
+                                                                </div>
+                                                                <style>
+                                                                    .mapouter {
+                                                                        position: relative;
+                                                                        text-align: right;
+                                                                        width: 100%;
+                                                                        height: 400px;
+                                                                    }
+
+                                                                    .gmap_canvas {
+                                                                        overflow: hidden;
+                                                                        background: none !important;
+                                                                        width: 100%;
+                                                                        height: 400px;
+                                                                    }
+
+                                                                    .gmap_iframe {
+                                                                        height: 400px !important;
+                                                                    }
+                                                                </style>
+                                                            </div>
+                                                            <ul class="restaurant-info-list">
+                                                                <li>
+                                                                    <i class="fa fa-map-marker red-clr"></i>
+                                                                    <strong>Address :</strong>
+                                                                    <span>{{ restaurant.address_fk.street_address }},</span>
+                                                                    <span>{{ restaurant.address_fk }}</span>
+                                                                    <span>City : {{ restaurant.address_fk.city }} | Pin Code: {{restaurant.address_fk.pincode}}</span>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="fa fa-phone red-clr"></i>
+                                                                    <strong>Call us & Hire us</strong>
+                                                                    <span>Phone: {{restaurant.contact_no}}</span>
+                                                                    <span>Email: {{restaurant.email}}</span>
+                                                                </li>
+                                                               
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+{% endblock body %}

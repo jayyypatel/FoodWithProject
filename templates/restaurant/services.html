@@ -1,0 +1,148 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+<div class="preloader">
+    <div id="cooking">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div id="area">
+            <div id="sides">
+                <div id="pan"></div>
+                <div id="handle"></div>
+            </div>
+            <div id="pancake">
+                <div id="pastry"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section style="padding-top: 150px;">
+    <div class="block">
+        <div class="fixed-bg" style="background-image: url('/static/images/topbg.jpg');"></div>
+        <div class="page-title-wrapper text-center">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="page-title-inner">
+                    <h1 itemprop="headline">Our Services</h1>
+                    <span>A Greate Restaurant Website</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="bread-crumbs-wrapper">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
+            <li class="breadcrumb-item active">Our services</li>
+        </ol>
+    </div>
+</div>
+
+<section>
+    <div class="block less-spacing gray-bg top-padd30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <div class="sec-box">
+                            <div class="resturent-services remove-ext">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="servise-box wow fadeIn" data-wow-delay="0.2s">
+                                        <figure>
+                                            <img src="{% static 'images/resource/resto-service1.jpg' %}" alt="">
+                                        </figure>
+                                        <div class="uper-meta">
+                                            <i><img src="assets/images/icon1.png" alt=""></i>
+                                            <h4><a href="#" title="">High Quality Food</a></h4>
+                                            <span>About electric do in market</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="servise-box wow fadeIn" data-wow-delay="0.3s">
+                                        <figure>
+                                            <img src="{% static 'images/resource/resto-service2.jpg' %}" alt="">
+                                        </figure>
+                                        <div class="uper-meta">
+                                            <i><img src="{% static 'images/icon2.png' %}" alt=""></i>
+                                            <h4><a href="#" title="">Clean Eating</a></h4>
+                                            <span>About electric do in market</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="servise-box wow fadeIn" data-wow-delay="0.4s">
+                                        <figure>
+                                            <img src="{% static 'images/resource/resto-service3.jpg' %}" alt="">
+                                        </figure>
+                                        <div class="uper-meta">
+                                            <i><img src="{% static 'images/icon3.png' %}" alt=""></i>
+                                            <h4><a href="#" title="">Food Free Delivery</a></h4>
+                                            <span>About electric do in market</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="servise-box wow fadeIn" data-wow-delay="0.5s">
+                                        <figure>
+                                            <img src="{% static 'images/resource/resto-service4.jpg' %}" alt="">
+                                        </figure>
+                                        <div class="uper-meta">
+                                            <i><img src="{% static 'images/icon4.png' %}" alt=""></i>
+                                            <h4><a href="#" title="">Italian Food</a></h4>
+                                            <span>About electric do in market</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="servise-box wow fadeIn" data-wow-delay="0.6s">
+                                        <figure>
+                                            <img src="{% static 'images/resource/resto-service5.jpg' %} " alt="">
+                                        </figure>
+                                        <div class="uper-meta">
+                                            <i><img src="{% static 'images/icon5.png' %}" alt=""></i>
+                                            <h4><a href="#" title="">Russian Food</a></h4>
+                                            <span>About electric do in market</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="servise-box wow fadeIn" data-wow-delay="0.7s">
+                                        <figure>
+                                            <img src="{% static 'images/resource/resto-service6.jpg' %}" alt="">
+                                        </figure>
+                                        <div class="uper-meta">
+                                            <i><img src="{% static 'images/icon6.png' %}" alt=""></i>
+                                            <h4><a href="#" title="">American Food</a></h4>
+                                            <span>About electric do in market</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pagination-wrapper text-center">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item prev"><a class="page-link brd-rd2" href="#" itemprop="url">PREVIOUS</a></li>
+                                    <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">1</a></li>
+                                    <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">2</a></li>
+                                    <li class="page-item active"><span class="page-link brd-rd2">3</span></li>
+                                    <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">4</a></li>
+                                    <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">5</a></li>
+                                    <li class="page-item">........</li>
+                                    <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">18</a></li>
+                                    <li class="page-item next"><a class="page-link brd-rd2" href="#" itemprop="url">NEXT</a></li>
+                                </ul>
+                            </div><!-- Pagination Wrapper -->
+                        </div><!-- Section Box -->
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</section>
+{% endblock body %}

@@ -1,0 +1,60 @@
+<!-- <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    <input class="brd-rd3" type="text" placeholder="User id" name="user_id">
+</div>  
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    <input class="brd-rd3" type="text" placeholder="Email id" name="email">
+</div>     
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    <input class="brd-rd3" type="password" placeholder="Password" name="password">
+</div>
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    <input class="brd-rd3" type="password" placeholder="Confirm Password" name="confirm_password">
+</div>
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    
+    <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6"><input type="radio" name="user_ops" id="" style="width: 23px;margin-left: 71px;" value="Manager">
+        <p style="color: black;margin-top: 11px;margin-left: 14px;"> <b>as a Manager</b> </p></div>
+    
+
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6"><input type="radio" name="user_ops" id="" style="width: 23px;margin-left: 71px;" value="Manager">
+            <p style="color: black;margin-top: 11px;margin-left: 14px;"> <b>as a Customer</b> </p></div>
+
+</div> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="{% url 'Auth_system:login_user_n' %}" method="post">
+        <!-- {% csrf_token %}
+        {{ form }}
+        {% if form.error %}
+        {% for field in form %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {{ response }} -->
+
+        hellooooooo
+        <input type="submit" value="login" style="background-color: brown;">
+    </form>
+</body>
+
+</html>

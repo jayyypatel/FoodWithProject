@@ -1,0 +1,260 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food with Comfort</title>
+    <link rel="shortcut icon" href="{% static '/images/favicon.png' %}" type="image/x-icon">
+
+
+    <link rel="stylesheet" href="{% static 'css/icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/red-color.css' %}">
+    <link rel="stylesheet" href="{% static 'css/yellow-color.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    
+    
+    
+        
+</head>
+
+<body>
+    <header class="stick">
+        <div class="topbar">
+            <div class="container">
+                
+                <div class="topbar-register">
+                    {% if user.is_authenticated %}
+                    <a class="" href="{% url 'Auth_system:logout_user_n' %}" title="Login" >logout</a> 
+                    {% else %}
+                    <a class="" href="{% url 'Auth_system:login_user_n' %}" title="Login" >login</a> /
+                    <a class="" href="{% url 'Auth_system:register_user_n' %}" title="Register" >REGISTER</a>
+                    {% endif %}
+                    
+                </div>
+                
+            </div>
+        </div><!-- Topbar -->
+        <div class="logo-menu-sec">
+            <div class="container">
+                <div class="logo">
+                    <h1 itemprop="headline"><a href="{% url 'root:index' %}" title="Home" itemprop="url"><img
+                                src=" {% static 'images/tmp.png' %} " alt="logo.png" itemprop="image"></a></h1>
+                </div>
+                <nav>
+                    <div class="menu-sec">
+                        <ul>
+                            <li class="menu-item-has-children" id="jm" ><a href="#" title="HOMEPAGES" itemprop="url" >
+                                <a href="{% url 'root:index' %}" ><span
+                                    class="red-clr">FWC</span> <center>HOME</center>  </a>
+                                
+                            </li>
+                            <li class="menu-item-has-children"><a href="{% url 'restaurant:indexrestaurant' %}" title="RESTAURANTS" itemprop="url"><span
+                                        class="red-clr">FWC</span>RESTAURANTS</a>
+                                <ul class="sub-dropdown">
+                                    <li><a href="{% url 'restaurant:indexrestaurant' %}" title="RESTAURANT 1" itemprop="url">RESTAURANTS</a></li>    
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'root:contactus' %}" title="CONTACT US" itemprop="url"><span
+                                class="red-clr">FWC</span>CONTACT US</a></li>
+                            <li><a href="{% url 'root:aboutus' %}" title="CONTACT US" itemprop="url"><span
+                                class="red-clr">FWC</span>ABOUT US</a></li>
+                                
+                            {% if user.is_authenticated %}
+                                <li class="menu-item-has-children"><a href="{% url 'customer_app:cust_profile' %}" title="PAGES" itemprop="url"><span
+                                    class="red-clr">FWC</span>USER</a>
+                                </li>
+                            
+                            {% endif %}
+                              
+                            
+                            
+                        </ul>
+                        
+                        
+                            
+                        
+                          
+                        {% if user.is_authenticated %}
+                            {% if  user.user_choice == 'manager' %} 
+                            <a class="red-bg brd-rd4" href="{% url 'manager_app:dashboard' %}" title="Register"
+                            itemprop="url">Dashboard</a>  
+                            {% endif %} 
+                            
+                            {% if user.user_choice == 'customer' %} 
+                                <a class="red-bg brd-rd4" href="{% url 'cart:cart' %}" title="Register"
+                                itemprop="url">        Cart   </a>
+                            {% endif %}  
+                        {% endif %}
+                         
+                        
+                             
+                       
+                        
+                        
+                    
+                        </div>
+                </nav><!-- Navigation -->
+            </div>
+        </div><!-- Logo Menu Section -->
+    </header><!-- Header -->
+
+    <div class="responsive-header">
+        <div class="responsive-topbar">
+            
+        </div>
+        <div class="responsive-logomenu">
+            <div class="logo">
+                <h1 itemprop="headline"><a href="{% url 'root:index' %}" title="Home" itemprop="url"><img
+                            src=" {% static 'images/tmp.png' %} " alt="logo.png" itemprop="image"></a></h1>
+            </div>
+            <span class="menu-btn yellow-bg brd-rd4"><i class="fa fa-align-justify"></i></span>
+        </div>
+        <div class="responsive-menu">
+            <span class="menu-close red-bg brd-rd3"><i class="fa fa-close"></i></span>
+            <div class="menu-lst">
+                <ul>
+                    <li class="menu-item-has-children"><a href="{% url 'root:index' %}"> HOME  </a>
+                        <ul class="sub-dropdown">
+                            <li><a href="{% url 'root:index' %}" title="RESTAURANT 1" itemprop="url">HOME</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children"><a href="{% url 'restaurant:indexrestaurant' %}" title="RESTAURANTS" itemprop="url"><span
+                        class="red-clr">REAL FOOD</span>RESTAURANTS</a>
+                        <ul class="sub-dropdown">
+                            <li><a href="{% url 'restaurant:indexrestaurant' %}" title="RESTAURANT 1" itemprop="url">RESTAURANTS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'root:contactus' %}" title="CONTACT US" itemprop="url"><span class="red-clr">REAL
+                        FOOD</span>CONTACT US</a></li>
+                        <li><a href="{% url 'root:aboutus' %}" title="CONTACT US" itemprop="url"><span class="red-clr">REAL
+                            FOOD</span>ABOUT US</a></li>
+                </ul>
+            </div>
+            <div class="topbar-register">
+                {% if user.is_authenticated %}
+                    <a class="" href="{% url 'Auth_system:logout_user_n' %}" title="Login" >logout</a> 
+                    {% else %}
+                    <a class="" href="{% url 'Auth_system:login_user_n' %}" title="Login" >login</a> /
+                    <a class="" href="{% url 'Auth_system:register_user_n' %}" title="Register" >REGISTER</a>
+                    {% endif %}
+            </div>
+            
+            
+        </div><!-- Responsive Menu -->
+    </div><!-- Responsive Header -->
+
+    {% block body %}
+
+    {% endblock %}
+
+    <!-- start section_bestResturants here -->
+    {% block section_bestResturants %}
+
+    {% endblock section_bestResturants %}     
+    <!-- ends here -->
+    
+    <!-- start top_resturats -->
+    {% block  top_resturats %}
+        
+    {% endblock top_resturats %}
+    <!-- ends here -->
+
+    <!-- start  -->
+    {% block choose_enjoy %}
+        
+    {% endblock choose_enjoy %}
+    <!-- end      -->
+
+    <!-- start  -->
+    {% block  popular_this_month %}
+    
+    {% endblock popular_this_month %}
+    <!-- end  -->
+
+    <!-- start  -->
+    {% block  steps %}
+    
+    {% endblock steps %}
+    <!-- end  -->
+
+    <!-- start  -->
+    {% block  featured %}
+    
+    {% endblock featured %}
+    <!-- end  -->
+
+    <!-- start  -->
+    {% block  choose_r_order %}
+    
+    {% endblock choose_r_order %}
+    <!-- end  -->
+
+    <footer>
+        <div class="block top-padd80 bottom-padd80 dark-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <div class="footer-data">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6 col-lg-3">
+                                    <div class="widget about_widget wow fadeIn" data-wow-delay="0.1s">
+                                        <div class="logo">
+                                            <h1 itemprop="headline"><a href="{% url 'root:index' %}" title="Home" itemprop="url"><img
+                                                src=" {% static 'images/tmp.png' %} " alt="logo.png" itemprop="image"></a></h1>
+                                        </div>
+
+                                        <div class="social2">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-lg-3">
+                                    <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
+                                        <h4 class="widget-title" itemprop="headline">INFORMATION</h4>
+                                        <ul>
+                                            <li><a href="{% url 'root:aboutus' %}" title="" itemprop="url">About Us</a></li>
+                                            <li><a href="{% url 'root:contactus' %}" title="" itemprop="url">Contact Us</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-lg-3">
+                                    
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-lg-3">
+                                    <div class="widget get_in_touch wow fadeIn" data-wow-delay="0.4s">
+                                        <h4 class="widget-title" itemprop="headline">GET IN TOUCH</h4>
+                                        <ul>
+                                            <li><i class="fa fa-map-marker"></i> Chimanbhai Patel institute <br>Sarkhej
+                                            Gandhinagar highway,opposite karnavati club, makraba , Ahmedabad , Gujrat 380015</li>
+                                            <li><i class="fa fa-phone"></i> (91) 9664449192</li>
+                                            <li><i class="fa fa-envelope"></i> <a href="#" title=""
+                                                    itemprop="url">foodwithcomfort.pythonanywhere.com</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- Footer Data -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="{% static '/js/jquery.min.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/js/plugins.js' %}"></script>
+    <script src="{% static '/js/main.js' %}"></script>
+
+
+</body>
+
+</html>

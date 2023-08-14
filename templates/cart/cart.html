@@ -1,0 +1,122 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="col-md-8 col-sm-12 col-lg-8" style="margin-top: 110px;margin-left: 208px;">
+    <div class="tab-content">
+        <div class="">
+            <div class="tabs-wrp brd-rd5">
+                
+                <div class="select-wrap-inner">
+                    <div class="select-wrp2">
+                        
+
+                    </div>
+
+                </div>
+                <div class="statement-table" >
+                    
+                    
+                    
+                    <table class='cart'>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Remove</th>
+                               
+                                <th>Unit Price</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart %}
+                                {% with product=item.product %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ product.get_absolute_url }}">
+                                                <img src="{{ product.product_img.url }}" height="80px">
+                                            </a>
+                                        </td>
+                                        <td> {{ product.product_name }}</td>
+                                        <td>
+                                            <form action="{% url 'cart:basket_update' product.id %}" method="post">
+                                                {% csrf_token %}
+                                                <div class="select-wrp2 ">
+                                                    <select  name="quantity" id="id_quantity">
+                                                        {% for i in item.update_quantity.quantity %}
+                                                            <option>{{i}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                <input class="brd-rd2 red-bg" style='color: aliceblue; ' type="submit" value="Update">
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="{% url 'cart:basket_remove' product.id %}" method="post">
+                                                {% csrf_token %}
+                                                <input class="brd-rd2 red-bg" style='color: aliceblue; ' type="submit" value="Remove">
+                                            </form>
+                                        </td>
+                                        <td class='num'> Rs {{ item.price }}</td>
+                                        <td class='num'> Rs {{ item.total_price }}</td>
+                                    </tr>
+                                {% endwith %}
+                            {% endfor %}
+                            <tr class='total'>
+                                    <td>Total</td>
+                                    <td colspan="4"></td>
+                                    <td class='num'> Rs {{ cart.get_total_price }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <center>
+                        <a href="{% url 'restaurant:book_tbl_withorder' %}"><button class="brd-rd2 red-bg" type="submit" style="margin-top: 5px;margin-right:25px;color: aliceblue;">Book Table With order</button></a>
+                        {% if flag %}
+                        <a href="{% url 'restaurant:restaurant_details' flag  %}"><button class="brd-rd2 red-bg" type="submit" style="margin-top: 5px;color: aliceblue;">Back to Restaurant</button></a>
+                        {% endif %}
+                    </center>
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div class="welcome-note yellow-bg brd-rd5">
+                            <h4 itemprop="headline">Error </h4>
+                            <p itemprop="description">{{message}}
+                            </p>
+                            <img src="{% static 'images/resource/welcome-note-img.png' %}"
+                                alt="welcome-note-img.png" itemprop="image">
+                            <a class="remove-noti" href="#" title="" itemprop="url"><img
+                                    src="{% static 'images/close-icon.png' %}"
+                                    alt="close-icon.png" itemprop="image"></a>
+                        </div>                
+                        {% endfor %}
+                        {% endif %} 
+                </div><!-- Statement Table -->
+             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <ul class="ordr-lst brd-rd5" style="width: 1100px;margin-top: 100px;margin-left: 200px;">
+
+
+
+
+    <li class="lst-hed">PRODUCT <span>TOTAL</span><span>Quantity</span></li>
+    <li>Product X 1 <span>$90.00</span><span>4</span></li>
+    <li>Subtotal <span>4</span><span>$90.00</span></li>
+    <li>Gov Tax <span>4</span><span>$2.70</span></li>
+    <li class="red-bg">Total <span>4</span><span>$92.70</span></li>
+</ul> -->
+</div>
+
+
+
+
+
+
+{% endblock body %}

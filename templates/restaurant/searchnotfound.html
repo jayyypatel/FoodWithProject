@@ -1,0 +1,48 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+<div class="block" style="padding-top: 280px;">
+    <div class="fixed-bg" style="background-image: url('/static/images/topbg.jpg');"></div>
+    <div class="page-title-wrapper text-center">
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <div class="page-title-inner">
+                <h1 itemprop="headline">Search Not Found</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="block top-padd30 gray-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="sec-box">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="row">
+                                <div class="col-md-9 col-sm-12 col-lg-9">
+                                    <div class="search-found">
+                                        <h3 itemprop="headline">Search Result Found <span class="red-clr">"{{query}}"</span></h3>
+                                        
+                                        <h2 itemprop="headline">No Results Found - Search a Relevant Keyword</h2>
+                                        <form class="search-frm" action="{% url 'restaurant:search_restaurant' %}" method="GET">
+                                        
+                                            <input type="text" placeholder="Search Keyword" name="q" >
+                                            <button class="red-bg" type="submit"><i class="fa fa-search"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-12 col-lg-3">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Section Box -->
+                </div>
+            </div>
+        
+    </div>
+</section>
+{% endblock body %}
+    
+

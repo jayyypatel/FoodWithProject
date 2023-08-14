@@ -1,0 +1,79 @@
+{% load static %}
+
+<section>
+    <div class="block grayish low-opacity">
+        <div class="fixed-bg" style="background-image: url('/static/images/pattern.png')"></div>
+        <div class="top-mockup"><img src="{% static 'images/resource/mockup2.png' %}" alt=""></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                    <div class="filters-wrapper">
+                        <div class="title1-wrapper text-center">
+                            <div class="title1-inner">
+                                <span>Your Favourite Food</span>
+                                <h2 itemprop="headline">Popular This Month</h2>
+                                <b>In Your City</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="dishes-caro">
+                        {% for pro_pop in product_popular %}
+                            <div class="dish-item" >
+                                <figure style="height: 283;width: 370px;"><img style="height: 260px;width: 370px;" src="{{  pro_pop.product_img.url }}" alt=""></figure>
+                                <a href="{% url 'restaurant:restaurant_details' pro_pop.restaurant_fk.id %}">    
+                                <div class="item-meta">
+                                    <img src="{{ pro_pop.restaurant_fk.picture.url }}" alt="">
+                                   
+                                    <div>
+                                        <br>
+                                        <span>{{ pro_pop.restaurant_fk }}</span>
+                                        <p> {{ pro_pop.restaurant_fk.address_fk }}</p>
+                                    </div>
+                                    
+                                </div>
+                            </a>
+                            <a href="{% url 'restaurant:food_details' pro_pop.id %}">
+                                <div class="caro-dish-name">
+                                    <h4>{{pro_pop.product_name}}</h4>
+                                    <span>&#8377 {{pro_pop.price}}</span>
+                                </div>
+                            </a>
+                            </div>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+                <div class="col-md-8 col-xs-12">
+                    <div class="popular-of-month">
+                        
+                        {% for pro_4 in product_4 %}
+                        <div class="pop-dish wow fadeIn" data-wow-delay="0.1s">
+                            <div class="poplr-dish">
+                                <img style="height: 88px;width: 88px;" src="{{pro_4.product_img.url}}" alt="">
+                                <div class="dish-meta">
+                                    <span>	&#8377 {{pro_4.price}}</span>
+                                    <h4><a href="{% url 'restaurant:food_details' pro_4.id %}" title="">{{ pro_4.product_name }}</a></h4>
+                                </div>
+                            </div>
+                            <div class="item-meta">
+                                <img alt=""   src="{{pro_4.restaurant_fk.picture.url}}">
+                                <div>
+                                    <span>{{ pro_4.restaurant_fk }}</span>
+                                    <p>{{ pro_4.restaurant_fk.address_fk }} </p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                            
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="bottom-mockup"><img src="assets/images/resource/mockup1.png" alt=""></div>
+    </div>
+</section>

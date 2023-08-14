@@ -1,0 +1,714 @@
+{% extends 'manager_app/dashlayout.html' %}
+
+{% block body %}
+	
+
+	
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+			<div class="deznav-scroll">
+				<ul class="metismenu" id="menu">
+					<li>
+						<a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="true">
+							<i class="flaticon-381-networking"></i>
+							<span class="nav-text">Dashboard</span>
+							
+						</a>
+						<ul aria-expanded="false" class="mm-collapse">
+							<li><a href="{% url 'manager_app:dashboard' %}">Dashboard</a></li>
+							<li><a href="{% url 'manager_app:food_items' %}">Food Items</a></li>
+							<li><a href="{% url 'manager_app:orderlist' %}">Booking with Order</a></li>
+							<li><a href="{% url 'manager_app:upcomming_booking' %}">Only Table Bookings</a></li>
+							<li><a href="{% url 'manager_app:tbl_details' %}">Table's Details</a></li>
+							<li><a href="{% url 'manager_app:tbl_regi' %}">Table Register</a></li>
+						</ul>
+					</li>
+				</ul>
+			
+				<div class="add-menu-sidebar">
+					<img src="images/icon1.png" alt=""/>
+					<p>Organize your menus through button bellow</p>
+					<a href="{% url 'manager_app:product_regi'  %}" class="btn bg-white text-black">+ Add Menus</a>
+				</div>
+				<div class="copyright">
+					<p><strong>Food With Comfort - Restaurant Admin Dashboard</strong> © 2021 All Rights Reserved</p>
+					<p>Made By <span class="heart"></span> Group - 16</p>
+				</div>
+			</div>
+		</div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+		
+		<!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <!-- row -->
+			<div class="container-fluid">
+				
+                <div class="row">
+					<div class="col-12">
+						<div class="table-responsive">
+							<table id="example5" class="display mb-4 dataTablesCard" style="min-width: 845px;">
+								<thead>
+									<tr>
+										<th>Order ID</th>
+										<th>Date</th>
+										<th>Customer Name</th>
+										<th>Location</th>
+										<th>Amount</th>
+										<th>Status Order</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>James WItcwicky</td>
+										<td>Corner Street 5th London</td>
+										<td>$164.52</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no fs-16">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>David Horison</td>
+										<td>981 St. John’s Road London</td>
+										<td>$24.55</td>
+										<td><span class="btn btn-sm light btn-primary w-space-no">On Delivery</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Emilia Johanson</td>
+										<td>67 St. John’s Road London</td>
+										<td>$251.16</td>
+										<td><span class="btn btn-sm light btn-primary w-space-no">On Delivery</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Rendy Greenlee</td>
+										<td>32 The Green London</td>
+										<td>$251.16</td>
+										<td><span class="btn btn-sm light btn-success">Delivered</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Jessica Wong</td>
+										<td>11 Church Road London</td>
+										<td>$24.17</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Veronica</td>
+										<td>21 King Street London</td>
+										<td>$74.92</td>
+										<td><span class="btn btn-sm light btn-primary w-space-no w-space-no">On Delivery</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#7552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Samantha Bake</td>
+										<td>79 The Drive London</td>
+										<td>$22.18</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Olivia Shine</td>
+										<td>35 Station Road London</td>
+										<td>$82.46</td>
+										<td><span class="btn btn-sm light btn-success">Delivered</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#4546563</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td class="w-space-no">Roberto Carlo</td>
+										<td class="w-space-no">Roberto Carlo</td>
+										<td>$34.41</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Franky Sihotang</td>
+										<td>6 The Avenue London</td>
+										<td>$164.52</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>James WItcwicky</td>
+										<td>Corner Street 5th London</td>
+										<td>$164.52</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no fs-16">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>David Horison</td>
+										<td>981 St. John’s Road London</td>
+										<td>$24.55</td>
+										<td><span class="btn btn-sm light btn-primary w-space-no">On Delivery</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Emilia Johanson</td>
+										<td>67 St. John’s Road London</td>
+										<td>$251.16</td>
+										<td><span class="btn btn-sm light btn-primary w-space-no">On Delivery</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Rendy Greenlee</td>
+										<td>32 The Green London</td>
+										<td>$251.16</td>
+										<td><span class="btn btn-sm light btn-success">Delivered</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Jessica Wong</td>
+										<td>11 Church Road London</td>
+										<td>$24.17</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Veronica</td>
+										<td>21 King Street London</td>
+										<td>$74.92</td>
+										<td><span class="btn btn-sm light btn-primary w-space-no">On Delivery</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#7552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Samantha Bake</td>
+										<td>79 The Drive London</td>
+										<td>$22.18</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Olivia Shine</td>
+										<td>35 Station Road London</td>
+										<td>$82.46</td>
+										<td><span class="btn btn-sm light btn-success">Delivered</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#4546563</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Roberto Carlo</td>
+										<td class="w-space-no">Roberto Carlo</td>
+										<td>$34.41</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Franky Sihotang</td>
+										<td>6 The Avenue London</td>
+										<td>$164.52</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>James WItcwicky</td>
+										<td>Corner Street 5th London</td>
+										<td>$164.52</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no fs-16">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>David Horison</td>
+										<td>981 St. John’s Road London</td>
+										<td>$24.55</td>
+										<td><span class="btn btn-sm light btn-primary w-space-no">On Delivery</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Emilia Johanson</td>
+										<td>67 St. John’s Road London</td>
+										<td>$251.16</td>
+										<td><span class="btn btn-sm light btn-primary w-space-no">On Delivery</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Rendy Greenlee</td>
+										<td>32 The Green London</td>
+										<td>$251.16</td>
+										<td><span class="btn btn-sm light btn-success">Delivered</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Jessica Wong</td>
+										<td>11 Church Road London</td>
+										<td>$24.17</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Veronica</td>
+										<td>21 King Street London</td>
+										<td>$74.92</td>
+										<td><span class="btn btn-sm light btn-primary w-space-no">On Delivery</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#7552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Samantha Bake</td>
+										<td>79 The Drive London</td>
+										<td>$22.18</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552351</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Olivia Shine</td>
+										<td>35 Station Road London</td>
+										<td>$82.46</td>
+										<td><span class="btn btn-sm light btn-success">Delivered</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#4546563</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Roberto Carlo</td>
+										<td class="w-space-no">Roberto Carlo</td>
+										<td>$34.41</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									<tr>
+										<td>#5552397</td>
+										<td class="w-space-no">26 March 2020, 12:42 AM</td>
+										<td>Franky Sihotang</td>
+										<td>6 The Avenue London</td>
+										<td>$164.52</td>
+										<td><span class="btn btn-sm light btn-warning w-space-no">New Order</span></td>
+										<td>
+											<div class="dropdown ms-auto text-right">
+												<div class="btn-link" data-bs-toggle="dropdown">
+													<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+												</div>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="#"><i class="las la-check-square scale5 text-primary me-2"></i> Accept Order</a>
+													<a class="dropdown-item" href="#"><i class="las la-times-circle scale5 text-danger me-2"></i> Reject Order</a>
+												</div>
+											</div>
+										</td>												
+									</tr>
+									
+								</tbody>
+							</table>
+						</div>
+                    </div>
+				</div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="../../dexignzone.com/index.html" target="_blank">DexignZone</a> 2021</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+		<!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+ 
+	
+	<!-- Datatable -->
+    
+	
+	
+	
+{% endblock body %}

@@ -1,0 +1,148 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+
+
+<div class="col-md-8 col-sm-12 col-lg-8" style="margin-top: 110px;margin-left: 240px;">
+    <div class="tab-content">
+        <div class="">
+            <div class="tabs-wrp brd-rd5">
+                
+                <div class="select-wrap-inner">
+                    <div class="select-wrp2">
+                        
+
+                    </div>
+
+                </div>
+                <div class="statement-table" >
+                    <div class="book-table">
+                        <br>
+                        {% if messages %}
+                                {% for message in messages %}
+                                    <div class="welcome-note yellow-bg brd-rd5">
+                                        <h4 itemprop="headline">Error </h4>
+                                        <p itemprop="description"><b>{{message}}</b>
+                                        </p>
+                                        <img src="{% static 'images/resource/welcome-note-img.png' %}"
+                                            alt="welcome-note-img.png" itemprop="image">
+                                        <a class="remove-noti" href="#" title="" itemprop="url"><img
+                                                src="{% static 'images/close-icon.png' %}"
+                                                alt="close-icon.png" itemprop="image"></a>
+                                    </div>                
+                                {% endfor %}
+                        {% endif %}
+                        <br>
+                        <h4 class="title3" itemprop="headline"><span
+                                class="sudo-bottom sudo-bg-red">Book</span> This
+                            Restaurant Table in {{rest}}</h4>
+                        <form action="." method="POST">
+                            {% csrf_token %}
+
+                            <div class="row">
+
+                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                    <div class="input-field brd-rd2"><i
+                                            class="fa fa-user"></i> {{ b_form.name}}</div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                    <div class="input-field brd-rd2"> {{ b_form.date}}</div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                    <div class="input-field brd-rd2">
+                                        {{b_form.time}}
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                    <div class="input-field brd-rd2"><i
+                                            class="fa fa-user"></i> {{b_form.num_of_person }}</div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                    <div class="select-wrp2 ">
+                                        <select id='hour_select'
+                                            name="hour_select" required>
+                                            <option value="" disabled selected>How many hours ?</option>
+                                            <option> 1 </option>
+                                            <option> 2 </option>
+                                            <option> 3 </option>
+                                            <option> 4 </option>
+                                            <option> 5 </option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                    <div class="select-wrp2 ">
+                                        <select id='decoration_select'
+                                            name="decoration_select">
+                                            {% if deco_type %}
+                                            {% for i in deco_type %}
+                                            <option> {{ i.decoration_type }} [
+                                                Price: {{ i.deco_price }} ]</option>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                    <div class="select-wrp2 ">
+                                        <select multiple id="tbl_booked"
+                                            name="tbl_booked">
+                                            {% if available_tbl %}
+                                            {% for i in available_tbl %}
+                                            <option> {{ i.tbl_name }}</option>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-lg-6">
+                                    
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-lg-12">
+                                    <button class="brd-rd2 red-bg"
+                                        type="submit">Book Table</button>
+                                </div>
+
+
+
+
+                            </div>
+                        </form>
+
+                    </div>
+                    
+                    
+                    
+                    
+                </div><!-- Statement Table -->
+             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <ul class="ordr-lst brd-rd5" style="width: 1100px;margin-top: 100px;margin-left: 200px;">
+
+
+
+
+    <li class="lst-hed">PRODUCT <span>TOTAL</span><span>Quantity</span></li>
+    <li>Product X 1 <span>$90.00</span><span>4</span></li>
+    <li>Subtotal <span>4</span><span>$90.00</span></li>
+    <li>Gov Tax <span>4</span><span>$2.70</span></li>
+    <li class="red-bg">Total <span>4</span><span>$92.70</span></li>
+</ul> -->
+</div>
+
+
+
+
+
+
+{% endblock body %}

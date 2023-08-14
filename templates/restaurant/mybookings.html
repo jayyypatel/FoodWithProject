@@ -1,0 +1,330 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+<div class="preloader">
+    <div id="cooking">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div id="area">
+            <div id="sides">
+                <div id="pan"></div>
+                <div id="handle"></div>
+            </div>
+            <div id="pancake">
+                <div id="pastry"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<section style="padding-top: 150px;">
+    <div class="block">
+        <div class="fixed-bg" style="background-image: url('/static/images/topbg.jpg');"></div>
+        <div class="page-title-wrapper text-center">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="page-title-inner">
+                    <h1 itemprop="headline">My Booking</h1>
+                        <span>A Greate Restaurant Website</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="bread-crumbs-wrapper">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
+            <li class="breadcrumb-item active">Register Reservation</li>
+        </ol>
+    </div>
+</div>
+
+<section>
+    <div class="block top-padd30 gray-bg">
+        
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <div class="sec-box">
+                        <div class="reservation-tabs-wrapper">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-12 col-lg-3">
+                                    <div class="reservation-tabs-list brd-rd5">
+                                        <ul class="nav nav-tabs brd-rd5">
+                                            <li class="active">
+                                                <a href="#reservation-tab1" data-toggle="tab">
+                                                <span class="brd-rd50">1</span> Information</a>
+                                            </li>
+                                            <li>
+                                                <a href="#reservation-tab2" data-toggle="tab">
+                                                    <span class="brd-rd50">2</span> Select Package
+                                                </a>
+                                            </li>
+                                            <li><a href="#reservation-tab3" data-toggle="tab"><span class="brd-rd50">3</span> Payment Information</a></li>
+                                            <li><a href="#reservation-tab4" data-toggle="tab"><span class="brd-rd50">.</span> Order list</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-sm-12 col-lg-9">
+                                    <div class="reservation-tab-content">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade in active" id="reservation-tab1">
+                                                <form class="restaurant-info-form brd-rd5">
+                                                    <div class="row mrg20">
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Restaurant name <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="text">
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Restaurant Phone <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="text">
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Manager Name <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="text">
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Manager Contact phone <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="text">
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                            <label>Contact Email <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="email">
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                            <h4 itemprop="headline">LOCATION</h4>
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                            <label>Country <sup>*</sup></label>
+                                                            <div class="select-wrp">
+                                                                <select>
+                                                                    <option>Pakistan</option>
+                                                                    <option>India</option>
+                                                                    <option>USA</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>State <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="text">
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>City <sup>*</sup></label>
+                                                            <div class="select-wrp">
+                                                                <select>
+                                                                    <option>Karachi</option>
+                                                                    <option>Multan</option>
+                                                                    <option>Lahore</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Latitude <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="text">
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Longitude <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="text">
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                            <div class="loc-map2">
+                                                                <div class="loc-map" id="loc-map"></div>
+                                                                <div class="loc-srch">
+                                                                    <input class="brd-rd3" type="text" placeholder="Type Your Address">
+                                                                    <button class="brd-rd3 red-bg" type="submit">Search Now</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-6 col-lg-12">
+                                                            <label>Delivery/Pickup <sup>*</sup></label>
+                                                            <div class="select-wrp">
+                                                                <select>
+                                                                    <option>Select 1</option>
+                                                                    <option>Select 2</option>
+                                                                    <option>Select 3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-6 col-lg-12">
+                                                            <label>Cuisines <sup>*</sup></label>
+                                                            <div class="select-wrp">
+                                                                <select>
+                                                                    <option>Select 1</option>
+                                                                    <option>Select 2</option>
+                                                                    <option>Select 3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                            <h4 itemprop="headline">SIGNUP FIELDS</h4>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Username <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="text">
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Email <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="email">
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                            <div class="check-box">
+                                                                <input type="checkbox" id="agrement">
+                                                                <label for="agrement">Accept Terms and conditions</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                            <div class="step-buttons">
+                                                                <a class="brd-rd3 red-bg" href="#" title="" itemprop="url">Next Step</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane fade" id="reservation-tab2">
+                                                <div class="select-package-wrapper">
+                                                    <h4 itemprop="headline">BUY MEMBERSHIP</h4>
+                                                    <div class="remove-ext3">
+                                                        <div class="row mrg10">
+                                                            <div class="col-md-4 col-sm-4 col-lg-4">
+                                                                <div class="packege-box brd-rd5 text-center">
+                                                                    <div class="package-header brd-rd5">
+                                                                        <h4 itemprop="headline">BASIC FREE</h4>
+                                                                        <span class="red-clr">$15.00 / <small>MO</small></span>
+                                                                    </div>
+                                                                    <ul class="package-body">
+                                                                        <li>Membership Duration</li>
+                                                                        <li>Restaurant Duration</li>
+                                                                        <li>Number of Tags</li>
+                                                                        <li>Reviews</li>
+                                                                        <li>Phone Number</li>
+                                                                        <li>Website Link</li>
+                                                                    </ul>
+                                                                    <a class="brd-rd2" href="#" title="" itemprop="url">SELECT PLAN</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-4 col-lg-4">
+                                                                <div class="packege-box brd-rd5 text-center">
+                                                                    <div class="package-header brd-rd5">
+                                                                        <h4 itemprop="headline">BASIC FREE</h4>
+                                                                        <span class="red-clr">$15.00 / <small>MO</small></span>
+                                                                    </div>
+                                                                    <ul class="package-body">
+                                                                        <li>Membership Duration</li>
+                                                                        <li>Restaurant Duration</li>
+                                                                        <li>Number of Tags</li>
+                                                                        <li>Reviews</li>
+                                                                        <li>Phone Number</li>
+                                                                        <li>Website Link</li>
+                                                                    </ul>
+                                                                    <a class="brd-rd2" href="#" title="" itemprop="url">SELECT PLAN</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-4 col-lg-4">
+                                                                <div class="packege-box brd-rd5 text-center">
+                                                                    <div class="package-header brd-rd5">
+                                                                        <h4 itemprop="headline">BASIC FREE</h4>
+                                                                        <span class="red-clr">$15.00 / <small>MO</small></span>
+                                                                    </div>
+                                                                    <ul class="package-body">
+                                                                        <li>Membership Duration</li>
+                                                                        <li>Restaurant Duration</li>
+                                                                        <li>Number of Tags</li>
+                                                                        <li>Reviews</li>
+                                                                        <li>Phone Number</li>
+                                                                        <li>Website Link</li>
+                                                                    </ul>
+                                                                    <a class="brd-rd2" href="#" title="" itemprop="url">SELECT PLAN</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="step-buttons">
+                                                        <a class="brd-rd3" href="#" title="" itemprop="url">Back Step</a>
+                                                        <a class="brd-rd3 red-bg" href="#" title="" itemprop="url">Next Step</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="reservation-tab3">
+                                                <form class="restaurant-info-form brd-rd5">
+                                                    <div class="row mrg20">
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>First Name <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="text">
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Last Name <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="text">
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Email <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="email">
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Phone <sup>*</sup></label>
+                                                            <input class="brd-rd3" type="text">
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                            <label>Address <sup>*</sup></label>
+                                                            <textarea class="brd-rd3"></textarea>
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                            <div class="step-buttons">
+                                                                <a class="brd-rd3" href="#" title="" itemprop="url">Back Step</a>
+                                                                <a class="brd-rd3 red-bg" href="#" title="" itemprop="url">Next Step</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="tab-pane fade" id="reservation-tab4">
+                                                <div class="order-wrapper2 brd-rd5">
+                                                    <h4 itemprop="headlie">YOUR ORDER</h4>
+                                                    <ul class="ordr-lst brd-rd5">
+                                                        <li class="lst-hed">PRODUCT <span>TOTAL</span></li>
+                                                        <li>Product X 1 <span>$90.00</span></li>
+                                                        <li>Subtotal <span>$90.00</span></li>
+                                                        <li>Gov Tax <span>$2.70</span></li>
+                                                        <li class="red-bg">Total <span>$92.70</span></li>
+                                                    </ul>
+                                                    <div class="pay-mnt">
+                                                        <span class="radio-box">
+                                                            <input type="radio" name="pay-mthd" id="mthd1">
+                                                            <label for="mthd1">Direct Bank Transfer</label>
+                                                        </span>
+                                                        <span class="radio-box">
+                                                            <input type="radio" name="pay-mthd" id="mthd2">
+                                                            <label for="mthd2">Check payments</label>
+                                                        </span>
+                                                        <span class="radio-box">
+                                                            <input type="radio" name="pay-mthd" id="mthd3">
+                                                            <label for="mthd3">Cash on delivery</label>
+                                                        </span>
+                                                        <span class="radio-box">
+                                                            <input type="radio" name="pay-mthd" id="mthd4">
+                                                            <label for="mthd4">Paypal <img src="assets/images/pay-mthd-img.jpg" alt="pay-mthd-img.jpg" itemprop="image"></label>
+                                                        </span>
+                                                    </div>
+                                                    <div class="ordr-btn">
+                                                        <a class="red-bg brd-rd5" href="#" title="" itemprop="url">Place Order</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div><!-- Section Box -->
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</section>
+
+{% endblock body %}

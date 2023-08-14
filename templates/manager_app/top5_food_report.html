@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			table {
+				border-collapse: collapse;
+			}
+			th {
+				background-color:green;
+				Color:white;
+			}
+			th, td {
+				width:200px;
+				text-align:center;
+				border:1px solid black;
+				padding:5px
+			
+			}
+			.geeks {
+				border-right:hidden;
+			}
+			.gfg {
+				border-collapse:separate;
+				border-spacing:0 15px;
+			}
+			h1 {
+				color:green;
+			}
+            @page {
+                size: Letter;
+                margin: 0in 0.44in 0.2in 0.44in;
+            }
+		</style>
+	</head>
+	<body>
+		<center>
+		<h1>Food With Comfort</h1>
+		<h2>{{ msg }}</h2>
+		<h3>{{rest}}</h3>
+		<h4>Date : - {{date}}</h4>
+		<table>
+			<tr>
+				<th>Food item</th>
+				<th>Price</th>
+				
+				<th>Occurrence</th>
+			</tr>
+		</table>
+		<table class = "gfg">
+			{% for i in top_5 %}
+			<tr>
+				<td class = "geeks">{{i.product_fk__product_name}}</td>
+				<td>{{i.product_fk__price}}</td>
+				
+				<td>{{ i.food_count }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+		</center>
+	</body>
+</html>

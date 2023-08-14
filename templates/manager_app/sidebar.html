@@ -1,0 +1,36 @@
+
+{% block sidebar %}
+
+
+<div class="deznav">
+    <div class="deznav-scroll">
+        <ul class="metismenu" id="menu">
+            <li>
+                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="true">
+                    <i class="flaticon-381-networking"></i>
+                    <span class="nav-text">Dashboard</span>
+                    
+                </a>
+                <ul aria-expanded="false" class="mm-collapse">
+                    <li><a href="{% url 'manager_app:dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'manager_app:food_items' %}">Food Items</a></li>
+                    <li><a href="{% url 'manager_app:orderlist' %}">Booking with Order</a></li>
+                    <li><a href="{% url 'manager_app:upcomming_booking' %}">Only Table Bookings</a></li>
+                    <li><a href="{% url 'manager_app:tbl_regi' %}">Table Register</a></li>
+                </ul>
+            </li>
+        </ul>
+    
+        <div class="add-menu-sidebar">
+            <img src="images/icon1.png" alt=""/>
+            <p>Organize your menus through button bellow</p>
+            <a href="{% url 'manager_app:product_regi'  %}" class="btn bg-white text-black">+ Add Menus</a>
+        </div>
+        <div class="copyright">
+            <p><strong>Food With Comfort - Restaurant Admin Dashboard</strong> © 2021 All Rights Reserved</p>
+            <p>Made By <span class="heart"></span> Group - 16</p>
+        </div>
+    </div>
+</div>
+    
+{% endblock sidebar %}

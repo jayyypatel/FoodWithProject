@@ -1,0 +1,59 @@
+{% load static %}
+
+<section>
+    <div class="block grayish low-opacity ">
+        <div class="fixed-bg" style="background-image: url(assets/images/pattern.png)"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="filters-wrapper">
+                        <div class="title1-wrapper text-center">
+                            <div class="title1-inner">
+                                <span>Your Favourite Food</span>
+                                <h2 itemprop="headline">choose your food</h2>
+                            </div>
+                        </div>
+                        <ul class="filter-buttons center ext-btm20">
+                            <li class="active"><a class="brd-rd30" data-filter="*" href="#" itemprop="url">All</a></li>
+                            
+                            {% for c in category %}
+                            <li><a class="brd-rd30" data-filter=".{{c.id}}" href="#" itemprop="url">{{c}}</a></li>
+                            {% endfor %}
+                                
+                            
+                            
+                        </ul><!-- Filter Buttons -->
+                        <div class="filters-inner">
+                            <div class="row">
+                                <div class="masonry">
+                                    {% for r in rest_context %}
+                                    <div class="col-md-6 col-sm-6 col-lg-6 filter-item {{r.category_fk.id}}">
+                                        <div class="featured-restaurant-box style2 brd-rd12 wow fadeIn" data-wow-delay="0.1s">
+                                            <div class="featured-restaurant-thumb">
+                                                <a href="{% url 'restaurant:restaurant_details' r.id %}" title="" itemprop="url"><img src="{{ r.picture.url }}" alt="most-popular-img1-1.png" itemprop="image"></a>
+                                            </div>
+                                            <div class="featured-restaurant-info">
+                                                <span class="red-clr">{{ r.address_fk }}</span>
+                                                <h4 itemprop="headline"><a href="restaurant-detail.html" title="" itemprop="url">{{ r }}</a></h4>
+                                                <span class="food-types">Type of food: <a href="#" title="" itemprop="url">{{ r.category_fk }}</a></span>
+                                                <ul class="post-meta">
+                                                    <li><i class="fa fa-check-circle-o"></i> Min order 	&#8377 {{ r.minimum_or }}</li>
+                                                    
+                                                    <li><i class="flaticon-money"></i> Accepts cash & online payments</li>
+                                                </ul>
+                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> {{r.rating_fk}}</span>
+                                                
+                                                <a class="brd-rd5" href="{% url 'restaurant:restaurant_details' r.id %}" title="Order Online">Order Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Filters Wrapper -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,57 @@
+{% load static %}
+
+<section>
+    <div class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="title1-wrapper text-center">
+                        <div class="title1-inner">
+                            <span>Your Favourite Food</span>
+                            <h2 itemprop="headline">Top Foods</h2>
+                        </div>
+                    </div>
+                    <div class="row remove-ext5">
+                        
+                        {% for top_dis in top_dicount_pro %}
+                        <div class="col-md-4 col-sm-6 col-lg-4" >
+                            <div class="popular-dish-box wow fadeIn" data-wow-delay="0.2s"
+                                style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+                                <div class="popular-dish-thumb">
+                                    <img
+                                            style="height: 250px;width: 370px;"
+                                            src="{{top_dis.product_img.url}}" alt="popular-dish-img1.jpg"
+                                            itemprop="image">
+                                    <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> {{top_dis.restaurant_fk.rating_fk }}</span>
+                                    {% comment %} <span class="post-likes brd-rd4">Discount  {{ top_dis.discount }} %</span> {% endcomment %}
+                                </div>
+                                <div class="popular-dish-info">
+                                    <h4 itemprop="headline"><a href="{% url 'restaurant:food_details' top_dis.id %}" title="" itemprop="url">
+                                            {{top_dis.product_name}}</a>
+                                    </h4>
+                                    <p itemprop="description">{{top_dis.description}}</p>
+                                    <span class="price">&#8377 {{ top_dis.price }}</span>
+                                    <a class="brd-rd2" href="{% url 'restaurant:food_details' top_dis.id %}" title="Order Now"
+                                        itemprop="url">Order Now</a>
+                                    <div class="restaurant-info">
+                                        <img style="width: 58px;height: 63px;padding-right: 5px;" src="{{top_dis.restaurant_fk.picture.url}}"
+                                            alt="restaurant-logo1.png" itemprop="image">
+                                        <div class="restaurant-info-inner">
+                                            <h6 itemprop="headline"><a href="{% url 'restaurant:restaurant_details' top_dis.restaurant_fk.id %}" title=""
+                                                    itemprop="url">{{top_dis.restaurant_fk}}</a></h6>
+                                            <span class="red-clr">{{ top_dis.restaurant_fk.address_fk }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Popular Dish Box -->
+                        </div>
+                        {% endfor %}
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

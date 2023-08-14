@@ -1,0 +1,79 @@
+{% extends 'root/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Login Page</title>
+</head>
+
+<body>
+
+	<div style="padding-top: 160px;" style="padding-top: 160px;">
+
+		<div class="container" style="margin-left: 355px;">
+
+			<div class="" style="width: 800px;">
+				<div class="sign-popup-wrapper brd-rd5">
+					<div class="sign-popup-inner brd-rd5">
+						<div class="sign-popup-title text-center">
+							<h4 itemprop="headline">SIGN IN</h4>
+
+						</div>
+
+						<form class="sign-form" action="{% url 'Auth_system:login_user_n' %}" method="post">
+							{% csrf_token %}
+
+							{% for fm in form %}
+							<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+								{{ fm.label_tag }} {{ fm }}
+							</div>
+
+							{% endfor %}
+
+							<!-- hello -->
+
+							<!-- hello  -->
+
+							<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+								<input type="submit" value="LOGIN" style="background-color: #ffbe00;font-size:20px;">
+							</div>
+							<a class="recover-btn" href="{% url 'Auth_system:password_reset' %}" title=""
+								itemprop="url">
+								<h5>Recover my password</h5>
+							</a>
+							{% comment %} {% for error in form.username.errors %}
+							<p class="text-danger">{{ error }}</p>
+							{% endfor %}
+
+							{% if form.non_field_errors %}
+							{% for error in form.non_field_errors %}
+							<p class="text-danger">{{ error }}</p>
+							{% endfor %}
+							{% endif %} {% endcomment %}
+
+
+
+						</form>
+						{% for message in messages %}
+
+						<div class="alert alert-danger">
+							<a class="close" href="#" data-dismiss="alert">×</a>
+							{{ message }}
+						</div>
+
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+
+</html>
+{% endblock body %}
