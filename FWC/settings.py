@@ -153,14 +153,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CART_SESSION_ID = 'cart'
 
 
-# DUMMY Instamojo keys     
-# API_KEY = "test_8497076990a0fa01e1c54c27991"
-# AUTH_TOKEN = "test_e63bae4f8ed4c731829ab13d3d5"
-# SALT = "636263017fd2487aac8e686cf94b6c99"
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'foodwithcomfort@gmail.com'
-EMAIL_HOST_PASSWORD = 'foodwithcomfort123'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
